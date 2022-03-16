@@ -58,10 +58,36 @@ import './App.css';
 
 // export default App;
 
-import { useState } from 'react';
+// import { useState } from 'react';
+
+// const App = () => {
+//   const [counter, setCounter] = useState(0);
+
+//   return (
+//     <div className='App'>
+//       <button onClick={() => setCounter((prevCount) => prevCount -1)}>-</button>
+//       <h1>{counter}</h1>
+//       <button onClick={() => setCounter((prevCount) => prevCount +1)}>+</button>
+
+//     </div>
+//   )
+// }
+// export default App;
+
+import { useState, useEffect } from 'react';
 
 const App = () => {
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    // alert('reload')
+    // counter = 100 //never modify the state manually. never mutate the state
+
+    // react state can only be change using it's own setter function i.e setCounter in this case
+
+    // setCounter(100)
+    alert("you've changed the code + counter")
+  }, [counter]) //this is known as dependency array
 
   return (
     <div className='App'>

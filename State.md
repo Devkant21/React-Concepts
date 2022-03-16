@@ -57,3 +57,46 @@ const App = () => {
   )
 }
 export default App;
+
+
+### Use Effect Hook
+
+import { useState, useEffect } from 'react';
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    // alert('reload')
+    //counter = 100 //never modify the state manually. never mutate the state
+
+    // react state can only be change using it's own setter function i.e setCounter in this case
+
+    <!-- counter = 100 is strictly forbidden -->
+
+    //setCounter(100) 
+
+    <!-- this setCounter(100) would keep the counter to 100 even if we increment or decrement it it'll be 100 -->
+
+    <!-- the correct way to write it would be : -->
+
+    setCounter(100);
+  }, []) //[] this is known as dependency array
+
+  setCounter(100);
+  }, [counter]) //[] this would keep the value at 100 even if we increment or decrement it
+
+  However we could do this instead
+  alert("you've changed the code + counter)
+  },[counter]) //the user experience won't be good as the alert box would keep popping up with every change in the increment o decrement counter
+
+  return (
+    <div className='App'>
+      <button onClick={() => setCounter((prevCount) => prevCount -1)}>-</button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount) => prevCount +1)}>+</button>
+
+    </div>
+  )
+}
+export default App;
