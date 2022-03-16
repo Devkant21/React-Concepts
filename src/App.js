@@ -33,12 +33,12 @@ import './App.css';
 
 // Custom Components
 
-const Person = () => {
+const Avenger = (props) => {
   return (
     <>
-      <h1>Name : Jane</h1>
-      <h2>Last Name : Doe</h2>
-      <h3>Age : 32</h3>
+      <h1>First Name : {props.name}</h1>
+      <h2>Last Name : {props.lastName}</h2>
+      <h3>Powers : {props.powers}</h3>
     </>
   )
 }
@@ -48,10 +48,9 @@ const App = () => {
     <>
       <div className='App'>
       {/* This method is lengthy as one change would result in change in all. The best way to go forward is to use the prop */}
-        <Person />
-        <Person />
-        <Person />
-
+        <Avenger name={'Iron'} lastName={'Man'} powers={'Iron Man Suit'}/>
+        <Avenger name={'Captain'} lastName={'America'} powers={'Super Soldier'}/>
+        <Avenger name={'Incredible'} lastName={'Hulk'} powers={'Green Soldier'}/>
       </div>
     </>
   )
